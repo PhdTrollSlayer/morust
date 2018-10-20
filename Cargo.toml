@@ -1,0 +1,6 @@
+[package]
+name = "arvore-morse"
+version = "0.1.0"
+authors = ["Rodrigo <rodrigomauricio@protonmail.com>"]
+
+[dependencies]
