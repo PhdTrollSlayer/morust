@@ -225,20 +225,20 @@ impl Node {
 
 pub fn search_morse(start: &Node, q: &str) -> String {
 
-    if start.clone().code.is_none() {
-        return "".to_ascii_uppercase()
-    } else if start.clone().code.expect("linh 165") == q {
+    if start.clone().code.expect("linh 165") == q {
         return start.clone().value;
     }
 
     if !start.clone().direita.is_none() {
         if search_morse(&start.clone().direita.expect("linh 169"), q) != "".to_ascii_uppercase() {
+            //println!("DIREITA");
             return search_morse(&start.clone().direita.expect("linh 170"), q);
         }
     }
 
     if !start.clone().esquerda.is_none() {
         if search_morse(&start.clone().esquerda.expect("linh 169"), q) != "".to_ascii_uppercase() {
+            //println!("ESQUERDA");
             return search_morse(&start.clone().esquerda.expect("linh 170"), q);
         }
     }

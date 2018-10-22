@@ -21,16 +21,16 @@ fn parser(m: String) {
     let mut iter = m.split_whitespace();
 
     loop {
-        if iter.clone().next().is_none() {
-            println!("");
-            break;
-        }
+        let i = iter.next();
 
-        print!("{}", search_morse(tree, iter.next().unwrap()));
-
-        if m.is_empty() {
-            println!("");
-            break;
+        match i {
+            Some(x) => {
+                print!("{}", search_morse(tree, x));
+            },
+            None => {
+                println!("");
+                break;
+            }
         }
 
     }
