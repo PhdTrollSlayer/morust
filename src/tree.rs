@@ -246,3 +246,27 @@ pub fn search_morse(start: &Node, q: &str) -> String {
     "".to_ascii_uppercase()
 
 }
+
+pub fn search_alfa(start: &Node, q: &str) -> String {
+
+    if start.clone().value == q {
+        return start.clone().code.unwrap();
+    }
+
+    if !start.clone().direita.is_none() {
+        if search_alfa(&start.clone().direita.expect("linh 169"), q) != "".to_ascii_uppercase() {
+            //println!("DIREITA");
+            return search_alfa(&start.clone().direita.expect("linh 170"), q);
+        }
+    }
+
+    if !start.clone().esquerda.is_none() {
+        if search_alfa(&start.clone().esquerda.expect("linh 169"), q) != "".to_ascii_uppercase() {
+            //println!("ESQUERDA");
+            return search_alfa(&start.clone().esquerda.expect("linh 170"), q);
+        }
+    }
+
+    "".to_ascii_uppercase()
+
+}
